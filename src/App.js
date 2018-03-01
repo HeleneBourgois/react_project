@@ -69,22 +69,18 @@ class App extends React.Component {
     return (
     <div>  
       <nav className='navbar navbar-default'>
-        <div className='App'>
           <div className='navbar-header'>
               <a className='navbar-brand' href='#'>My react app</a>
           </div>
-          <div className='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
-              <ul className='nav navbar-nav'>
-                  <li><Link to='/login'>Login</Link></li>
-                  <li><Link to='/signup'>Signup</Link></li>
-                  <li><Link to='/home'>Home</Link></li>
-                  <li><Link to='/recipes'>Recipes</Link></li>
-                  <li><Link to='/profil'>Profil</Link></li>
-              </ul>        
-          </div>
-        </div>
+            <ul className='nav navbar-nav'>
+                <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/signup'>Signup</Link></li>
+                <li><Link to='/home'>Home</Link></li>
+                <li><Link to='/recipes'>Recipes</Link></li>
+                <li><Link to='/profil'>Profil</Link></li>
+            </ul>        
       </nav> 
-          <Router>
+          
             <Switch>
                 <Route path='/login' component={Login} />
                 <Route path='/signup' component={Signup} />
@@ -92,7 +88,7 @@ class App extends React.Component {
                 <PrivateRoute path='/recipes' component={Recipe} />
                 <Route path='/profil' component={Profil} />
             </Switch> 
-          </Router>  
+          
      </div>     
     )
    }  
