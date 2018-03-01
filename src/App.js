@@ -32,10 +32,10 @@ export const fakeAuth = {
     ({ history }) =>
       fakeAuth.isAuthenticated ? (
         <p>
-          Welcome!{" "}
+          Welcome!{''}
           <button
             onClick={() => {
-              fakeAuth.signout(() => history.push("/"));
+              fakeAuth.signout(() => history.push('/'));
             }}
           >
             Sign out
@@ -55,7 +55,7 @@ export const fakeAuth = {
         ) : (
           <Redirect
             to={{
-              pathname: "/login",
+              pathname: '/login',
               state: { from: props.location }
             }}
           />
@@ -65,33 +65,34 @@ export const fakeAuth = {
   )
 
 class App extends React.Component {
-   render() {
+  render() {
+
     return (
-    <div>  
-      <nav className='navbar navbar-default'>
+      <div>  
+        <nav className='navbar navbar-default'>
           <div className='navbar-header'>
-              <a className='navbar-brand' href='#'>My react app</a>
+            <a className='navbar-brand' href='#'>My react app</a>
           </div>
-            <ul className='nav navbar-nav'>
-                <li><Link to='/login'>Login</Link></li>
-                <li><Link to='/signup'>Signup</Link></li>
-                <li><Link to='/home'>Home</Link></li>
-                <li><Link to='/recipes'>Recipes</Link></li>
-                <li><Link to='/profil'>Profil</Link></li>
-            </ul>        
-      </nav> 
-          
-            <Switch>
-                <Route path='/login' component={Login} />
-                <Route path='/signup' component={Signup} />
-                <Route exact path='/home' component={Home} />
-                <PrivateRoute path='/recipes' component={Recipe} />
-                <Route path='/profil' component={Profil} />
-            </Switch> 
-          
-     </div>     
+          <ul className='nav navbar-nav'>
+            <li><Link to='/login'>Login</Link></li>
+            <li><Link to='/signup'>Signup</Link></li>
+            <li><Link to='/home'>Home</Link></li>
+            <li><Link to='/recipes'>Recipes</Link></li>
+            <li><Link to='/profil'>Profil</Link></li>
+          </ul>        
+        </nav> 
+            
+      <Switch>
+        <Route path='/login' component={Login} />
+        <Route path='/signup' component={Signup} />
+        <Route exact path='/home' component={Home} />
+        <PrivateRoute path='/recipes' component={Recipe} />
+        <Route path='/profil' component={Profil} />
+      </Switch> 
+            
+      </div>     
     )
-   }  
+  }  
 }     
     
 export default App
