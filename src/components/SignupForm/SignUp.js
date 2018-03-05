@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Route, Link, Redirect } from 'react-router-dom'
+import { Button, Form } from 'semantic-ui-react'
 
 
 
@@ -55,7 +56,7 @@ class Signup extends React.Component {
         }
     render() {
         return (
-        <form onSubmit={this.handleSubmit}> 
+        <form className='ui form' onSubmit={this.handleSubmit}> 
         <div className='jumbotron'>
         <h1 className='display-3'> Sign Up</h1>
         </div>
@@ -74,7 +75,7 @@ class Signup extends React.Component {
         <div>
           <input type='number' name='age' placeholder='age' onChange={this.handleChange} />
         </div>
-        <input type='submit' value='Submit'/>
+        <input type='submit' className='ui button' value='Submit'/>
       </form>
         )
     }

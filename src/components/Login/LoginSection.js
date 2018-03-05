@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Route, Link, Redirect } from 'react-router-dom'
-// import { createBrowserHistory } from 'history'
-// import Alert from 'react-bootstrap-alert'
-// import { ButtonInput } from 'react-bootstrap';
-// import { Form, ValidatedInput } from 'react-bootstrap-validation';
 import {fakeAuth } from './../../App'
+import Cookies from 'universal-cookie';
+import { Form, Button } from 'semantic-ui-react'
+
 
 
 class Login extends React.Component {
@@ -17,21 +16,8 @@ class Login extends React.Component {
       password: ''
     }
 
-
-    // state = {
-    //   redirectToReferrer: false
-    // // }
-    // login = () => {
-    //   fakeAuth.authenticate(() => {
-    //     this.setState(() => ({
-    //       redirectToReferrer: true
-    //     }))
-    //   })
-    // }
-
     const { history } = this.props
-    // this.setState({ error: false })
-
+  
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   } 
@@ -42,6 +28,8 @@ class Login extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault()
+
       let log = this.state.username + ' ' + this.state.password
       let username = this.state.username
       let password = this.state.password
@@ -69,60 +57,45 @@ class Login extends React.Component {
           was.props.history.push('/login')
         } else {
           was.setState({ username: username , password: password})
+          const cookies = new Cookies()
+          cookies.set('userid', response.data.id, { 
+            path: '/',
+            expires: new Date('2018-11-11')
+          })
           console.log('welcome back user')
           fakeAuth.authenticate(function() {
             was.setState({ redirectToReferrer: true });
             was.props.history.push('/recipes')
+            
           })
         }
       })
+     
       .catch( function(error) {
         console.log('error' + error)
-      }) 
-    
-      event.preventDefault()
+      })     
     }
 
   render() {
-    // const { from } = this.props.location.state || { from: { pathname: '/' } }
-    // const { redirectToReferrer } = this.state
-
-    // if (redirectToReferrer === true) {
-    //   <Redirect to={from} />
-    // }
 
     return (
-      <form onSubmit={this.handleSubmit}> 
-        <div>
+      <form className='ui form' onSubmit={this.handleSubmit} id='form'> 
+        <div className='field'>
           <input type='text' name='username' placeholder='username' onChange={this.handleChange} />
-        </div>  
-        <div>
+          <div className='ui pointing label'>Please enter a value</div>
+        </div> 
+        <div className='ui divider'>
+        </div> 
+        <div className='field'>
+          <div className='ui pointing below label'>Please enter a value</div>
           <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
         </div>
-        <input type='submit' value='Submit'/>
+        <input type='submit' className='ui button'  value='Submit' />
       </form>
       
     )
   }
 }
-
-// const PrivateRoute = ({ component: Component, ...rest }) => (
-//   <Route
-//     {...rest}
-//     render={props =>
-//       fakeAuth.isAuthenticated ? (
-//         <Component {...props} />
-//       ) : (
-//         <Redirect
-//           to={{
-//             pathname: "/login",
-//             state: { from: props.location }
-//           }}
-//         />
-//       )
-//     }
-//   />
-// );
 
 export default Login
 

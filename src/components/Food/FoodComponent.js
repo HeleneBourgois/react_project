@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Route, Link, Redirect } from 'react-router-dom'
 import Cookies from 'universal-cookie'
-
+import { Button, Form } from 'semantic-ui-react'
 
 class Food extends React.Component {
     constructor(props) {
@@ -53,7 +53,7 @@ class Food extends React.Component {
         }
     render() {
         return (
-        <form onSubmit={this.handleSubmit} id='form'> 
+        <form className='ui form' onSubmit={this.handleSubmit} id='form'> 
         <div className='jumbotron'>
         <h1 className='display-3' id='title'>  New food</h1>
         </div>
@@ -67,7 +67,7 @@ class Food extends React.Component {
         <div>
           <input type='number' name='quantity' placeholder='quantity' onChange={this.handleChange}/>
         </div> 
-        <input type='submit' value='Submit' id='submit'/>
+        <input type='submit' className='ui button' value='Submit' id='submit'/>
       </form>
         )
     }

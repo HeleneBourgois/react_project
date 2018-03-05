@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Route, Link, Redirect } from 'react-router-dom'
 import Cookies from 'universal-cookie'
+import { Button, Form } from 'semantic-ui-react'
 
 
 class NewRecipe extends React.Component {
@@ -76,11 +77,11 @@ class NewRecipe extends React.Component {
       const { recipes } = this.state
  
         return (
-        <form onSubmit={this.handleSubmit} id='form' > 
+        <form className='ui form' onSubmit={this.handleSubmit} id='form' > 
         <div className='jumbotron'>
         <h1 className='display-3' id='title'>  New recipe</h1>
         </div>
-        <h2 className='display-2'> Create new recipe</h2>
+        <h2 className='display-2'> Create a new recipe</h2>
         <div>
           <input type='text' name='name' placeholder='name' onChange={this.handleChange} />
         </div> 
@@ -89,7 +90,7 @@ class NewRecipe extends React.Component {
           {recipes.map(recipe => <option key={recipe._id} value= {recipe._id}>{recipe.name } </option>)}
         </select>
         </div>
-        <input type='submit' value='Submit' id='submit'/>
+        <input type='submit' className='ui button' value='Submit' id='submit'/>
       </form>
         )
     }

@@ -80,7 +80,7 @@ class App extends React.Component {
             <li><Link to='/home'>Home</Link></li>
             <li><Link to='/recipes'>Recipes</Link></li>
             <li><Link to='/recipe'>New recipes</Link></li>
-            <li><Link to='/food'>Food</Link></li>
+            <li><Link to='/food'>New food</Link></li>
             <li><Link to='/profil'>Profil</Link></li>
           </ul>        
         </nav> 

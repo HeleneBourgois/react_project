@@ -1,4 +1,10 @@
+.display-2 {
+  color: #8B008B; }
+
 body {
-  background-color: grey; }
+  background-color: #5F9EA0; }
+
+#title {
+  color: #808080; }
 
 /*# sourceMappingURL=design.css.map */

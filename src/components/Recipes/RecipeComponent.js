@@ -28,6 +28,7 @@ class Recipe extends React.Component {
     render() {
 
         const { recipes } = this.state
+        //ici jextraie recipes de state, et lui donne la nouvelle valeur contenue dans response attention cest du ES6
 
         return (
            
