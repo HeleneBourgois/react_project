@@ -1,0 +1,10 @@
+
+@mixin color {
+    color: #8B008B;
+   
+    
+}
+
+.display-2{
+    @include color;
+}
