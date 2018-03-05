@@ -4,28 +4,41 @@ import { Route, Link, Redirect } from 'react-router-dom'
 
 
 class Recipe extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            recipes: []
+        }
+    }
 
-    displayRecipes(event) {
+    componentDidMount() {
+        let was = this
         axios.get('http://localhost:3000/recipes')
         .then(function(response) {
             console.log(response)
+            was.setState({ recipes: response.data})
 
         })
         .catch( function(error) {
             console.log('error' + error)
         })
         event.preventDefault()
-      } 
-    
-    render(){
+    } 
+ 
+    render() {
+
+        const { recipes } = this.state
 
         return (
-            <form onSubmit={this.displayRecipes}>
-                <div className='jumbotron'>
-                    <h1 className='display-3'>Recipes page</h1>
-                </div>
-                <input type='submit' value ='Get recipes'/>
-            </form>
+           
+            <div>
+                {recipes.map(recipe =>
+                    <div key={recipe._id}>
+                        <ul><li>{recipe.name}</li></ul>   
+                    </div>
+                )}
+            </div>        
+            
         )
     }
 }
