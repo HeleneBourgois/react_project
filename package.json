@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^9.3.1",
     "axios": "^0.17.1",
     "bootstrap": "^4.0.0-alpha.6",
     "classnames": "^2.2.5",
     "html-webpack-plugin": "^2.30.1",
+    "js-cookie": "^2.2.0",
+    "jwt-decode": "^2.2.0",
     "path": "^0.12.7",
     "proxy": "http://localhost:3000/",
     "react": "^16.2.0",
@@ -19,9 +22,13 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
+    "react-select": "^1.2.1",
     "reactstrap": "^5.0.0-beta",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "semantic-ui-react": "^0.78.3",
+    "sfcookies": "^1.0.2",
+    "universal-cookie": "^2.1.2"
   },
   "scripts": {
     "start": "webpack-dev-server --inline --content-base . --history-api-fallback",
