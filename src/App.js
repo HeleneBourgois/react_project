@@ -3,9 +3,10 @@ import { render } from 'react-dom'
 import Login from './components/Login/LoginSection'
 import Signup from './components/SignupForm/SignUp'
 import Recipe from './components/Recipes/RecipeComponent'
+import Food from './components/Food/FoodComponent'
 import Profil from './components/Profils/Profil'
 import Home from './components/Home/Home'
-// import RecipeDetail from './components/Recipes/RecipeDetailComponent'
+import NewRecipe from './components/Recipes/NewRecipe'
 import ReactDOM from 'react-dom'
 import { 
     BrowserRouter as Router,
@@ -19,12 +20,12 @@ import {
 export const fakeAuth = {
     isAuthenticated: false,
     authenticate(cb) {
-      this.isAuthenticated = true;
-      setTimeout(cb, 100); // fake async
+      this.isAuthenticated = true
+      setTimeout(cb, 100)
     },
     signout(cb) {
-      this.isAuthenticated = false;
-      setTimeout(cb, 100);
+      this.isAuthenticated = false
+      setTimeout(cb, 100)
     }
   };
   
@@ -35,7 +36,7 @@ export const fakeAuth = {
           Welcome!{''}
           <button
             onClick={() => {
-              fakeAuth.signout(() => history.push('/'));
+              fakeAuth.signout(() => history.push('/'))
             }}
           >
             Sign out
@@ -44,7 +45,7 @@ export const fakeAuth = {
       ) : (
         <p>You are not logged in.</p>
       )
-  );
+  )
   
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
@@ -78,6 +79,8 @@ class App extends React.Component {
             <li><Link to='/signup'>Signup</Link></li>
             <li><Link to='/home'>Home</Link></li>
             <li><Link to='/recipes'>Recipes</Link></li>
+            <li><Link to='/recipe'>New recipes</Link></li>
+            <li><Link to='/food'>Food</Link></li>
             <li><Link to='/profil'>Profil</Link></li>
           </ul>        
         </nav> 
@@ -87,6 +90,8 @@ class App extends React.Component {
         <Route path='/signup' component={Signup} />
         <Route exact path='/home' component={Home} />
         <PrivateRoute path='/recipes' component={Recipe} />
+        <Route path='/recipe' component={NewRecipe} />
+        <Route path='/food' component={Food} />
         <Route path='/profil' component={Profil} />
       </Switch> 
             
