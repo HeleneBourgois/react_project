@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Route, Link, Redirect } from 'react-router-dom'
 import Cookies from 'universal-cookie'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Dropdown } from 'semantic-ui-react'
+
 
 
 class NewRecipe extends React.Component {
@@ -12,19 +13,29 @@ class NewRecipe extends React.Component {
             name: '',
             _foods: [],
             recipes: [],
+            options: [
+              {
+                key: null,
+                value: null,
+                text: null
+              }
+            ]
 
 
         }
         const { history } = this.props
-
+        
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-      } 
+      }
       
-      handleChange(event){
-        console.log(event.target)
+      handleChange(event, data){
+        console.log(data)
         this.setState({[event.target.name]: event.target.value})
-
+        if (data && data.name === '_foods') {
+          this.setState({_foods: data.value}) 
+          console.log(data.value)
+        }
       }
 
       componentDidMount() {
@@ -32,8 +43,6 @@ class NewRecipe extends React.Component {
         let cookies = new Cookies()
         let userid = cookies.get('userid')
         axios.get('http://localhost:3000/food/' , {
-          //userid dans paramas car query va dans url
-          //quand je mets params dans axios ca correspond a un query
           params: {
             _user: userid
           }
@@ -41,12 +50,23 @@ class NewRecipe extends React.Component {
         }
       )
       .then((response) => {
+        console.log(response)
         this.setState({recipes: response.data})
+        let options = response.data.map(recipe => {
+          return {
+            key: recipe._id,
+            value: recipe._id,
+            text: recipe.name
+          }
+        })
+        this.setState({options: options})
 
       })
       .catch(function(error) {
       })
       }
+
+      
     
       handleSubmit(event) {
         event.preventDefault()
@@ -59,9 +79,8 @@ class NewRecipe extends React.Component {
           let userid = cookies.get('userid')
           alert('A recipe was submitted: ' )
           axios.post('http://localhost:3000/recipe/' + userid, { 
-            //+ userid car params soit egal a :USERID
               name: name,
-              _foods: [_foods]
+              _foods: _foods
             
           } )
       
@@ -73,8 +92,12 @@ class NewRecipe extends React.Component {
         
          
         }
+        
+        
+        
+        
     render() {
-      const { recipes } = this.state
+      const { recipes, options } = this.state
  
         return (
         <form className='ui form' onSubmit={this.handleSubmit} id='form' > 
@@ -86,14 +109,14 @@ class NewRecipe extends React.Component {
           <input type='text' name='name' placeholder='name' onChange={this.handleChange} />
         </div> 
         <div>
-        <select name='_foods' value={this.state.value} onChange={this.handleChange}>
-          {recipes.map(recipe => <option key={recipe._id} value= {recipe._id}>{recipe.name } </option>)}
-        </select>
+          <Dropdown name='_foods' placeholder='Skills' fluid multiple selection options={options} selection onChange={this.handleChange} />
         </div>
         <input type='submit' className='ui button' value='Submit' id='submit'/>
       </form>
         )
     }
 }
+
+
 
 export default NewRecipe
