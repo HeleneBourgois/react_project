@@ -7,7 +7,7 @@ import React, { Component } from 'react'
 const Home = function() {
     return (
         <div className='jumbotron'>
-            <h1 className='display-3'> Home Page</h1>
+            <h1 className='main-title'> Home Page</h1>
         </div>
     )
 }
