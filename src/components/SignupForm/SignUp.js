@@ -60,19 +60,20 @@ class Signup extends React.Component {
         <div className='jumbotron'>
         <h1 className='display-3'> Sign Up</h1>
         </div>
-        <div>
+        <h2 className='display-2'>Please sign-up</h2>
+        <div className='six wide field'>
           <input type='text' name='firstName' placeholder='firstName' onChange={this.handleChange} />
         </div>  
-        <div>
+        <div className='six wide field'>
           <input type='text' name='lastName' placeholder='lastName' onChange={this.handleChange} />
         </div> 
-        <div>
+        <div className='six wide field'>
           <input type='text' name='username' placeholder='username' onChange={this.handleChange}/>
         </div> 
-        <div>
+        <div className='six wide field'>
           <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
         </div>
-        <div>
+        <div className='six wide field'>
           <input type='number' name='age' placeholder='age' onChange={this.handleChange} />
         </div>
         <input type='submit' className='ui button' value='Submit'/>
