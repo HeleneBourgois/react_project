@@ -4,6 +4,7 @@ import Login from './components/Login/LoginSection'
 import Signup from './components/SignupForm/SignUp'
 import Recipe from './components/Recipes/RecipeComponent'
 import Food from './components/Food/FoodComponent'
+import FoodDetail from './components/Food/FoodDetail'
 import Profil from './components/Profils/Profil'
 import Home from './components/Home/Home'
 import NewRecipe from './components/Recipes/NewRecipe'
@@ -77,7 +78,7 @@ class App extends React.Component {
           <ul className='nav navbar-nav'>
             <li><Link to='/login'>Login</Link></li>
             <li><Link to='/signup'>Signup</Link></li>
-            <li><Link to='/home'>Home</Link></li>
+            <li><Link to='/'>Home</Link></li>
             <li><Link to='/recipes'>Recipes</Link></li>
             <li><Link to='/recipe'>New recipes</Link></li>
             <li><Link to='/food'>New food</Link></li>
@@ -88,10 +89,11 @@ class App extends React.Component {
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/signup' component={Signup} />
-        <Route exact path='/home' component={Home} />
+        <Route exact path='/' component={Home} />
         <PrivateRoute path='/recipes' component={Recipe} />
         <Route path='/recipe' component={NewRecipe} />
         <Route path='/food' component={Food} />
+        <Route path='/foodDetail/:recipeId' component={FoodDetail} />
         <Route path='/profil' component={Profil} />
       </Switch> 
             
