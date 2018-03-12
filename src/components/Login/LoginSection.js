@@ -43,7 +43,7 @@ class Login extends React.Component {
       } )
   
       .then(function(response) {
-        console.log(response)
+        // console.log(response)
         if (!response.data) {
           return console.log("no data from back")
         }
@@ -62,7 +62,7 @@ class Login extends React.Component {
             path: '/',
             expires: new Date('2018-11-11')
           })
-          console.log('welcome back user')
+          // console.log('welcome back user')
           fakeAuth.authenticate(function() {
             was.setState({ redirectToReferrer: true });
             was.props.history.push('/recipes')
@@ -79,14 +79,16 @@ class Login extends React.Component {
   render() {
 
     return (
-      <form className='ui form' onSubmit={this.handleSubmit} id='form'> 
-        <div className='field'>
+      <form className='ui form' onSubmit={this.handleSubmit} id='form'>
+        <div className='jumbotron'>
+        <h1 className='display-3'>  Login </h1>
+        </div> 
+        <h2 className='display-2'> Please log-in</h2>
+        <div className='six wide field'>
           <input type='text' name='username' placeholder='username' onChange={this.handleChange} />
           <div className='ui pointing label'>Please enter a value</div>
         </div> 
-        <div className='ui divider'>
-        </div> 
-        <div className='field'>
+        <div className='six wide field'>
           <div className='ui pointing below label'>Please enter a value</div>
           <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
         </div>
