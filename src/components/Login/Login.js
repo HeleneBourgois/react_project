@@ -4,6 +4,7 @@ import { Route, Link, Redirect } from 'react-router-dom'
 import {fakeAuth } from './../../App'
 import Cookies from 'universal-cookie';
 import { Form, Button } from 'semantic-ui-react'
+import {Greeting} from './../Greeting/Greeting'
 
 
 
@@ -78,21 +79,22 @@ class Login extends React.Component {
 
   render() {
 
-    return (
-      <form className='ui form' onSubmit={this.handleSubmit} id='form'>
-        <div className='jumbotron'>
-        <h1 className='display-3'>  Login </h1>
-        </div> 
-        <h2 className='display-2'> Please log-in</h2>
-        <div className='six wide field'>
-          <input type='text' name='username' placeholder='username' onChange={this.handleChange} />
-          <div className='ui pointing label'>Please enter a value</div>
-        </div> 
-        <div className='six wide field'>
-          <div className='ui pointing below label'>Please enter a value</div>
-          <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
-        </div>
-        <input type='submit' className='ui button'  value='Submit' />
+    return (  
+        <form className='ui form' onSubmit={this.handleSubmit} id='form'>
+          <div className='jumbotron'>
+          <h1 className='display-3'>  Login </h1>
+          </div> 
+          <Greeting name='welcome'/>
+          <h2 className='display-2'> Please log-in</h2>
+          <div className='six wide field'>
+            <input type='text' name='username' placeholder='username' onChange={this.handleChange} />
+            <div className='ui pointing label'>Please enter a value</div>
+          </div> 
+          <div className='six wide field'>
+            <div className='ui pointing below label'>Please enter a value</div>
+            <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
+          </div>
+          <input type='submit' className='ui button'  value='Submit' />
       </form>
       
     )

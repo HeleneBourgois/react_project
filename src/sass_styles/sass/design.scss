@@ -1,18 +1,27 @@
 @import 'mixins';
+@import '_couleurs';
 
-$bkg_color: #5F9EA0;
+$bkg_color: #000000;
 $title_color :#808080;
 
+h1,h2,h3{
+    font-family: 'Roboto', sans-serif;
+}
+
+h2{
+    font-size: 40px;
+}
 body{
     background-color: $bkg_color;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
-#title {
-    color: $title_color;
-    
+@function calculHauteur($largeur){
+    @return $largeur * 2;
 }
 
-// .display-2 {
-//     color: #8B008B;
+// div {
+//     width: 250px;
+//     height: calculHauteur(250px);
 // }

@@ -37,13 +37,19 @@ class Food extends React.Component {
     
       }
 
-      componentDidMount() {
+      componentWillMount() {
         let was = this
         let cookies = new Cookies()
         let userid = cookies.get('userid')
         axios.get('http://localhost:3000/recipes/', {
           params: {
-            _user: userid
+            filter: {
+              _user: userid
+            },
+            sort: {
+              name: 'asc'
+            },
+            select: 'name _id'
           }
         })
         .then((response) => {
@@ -119,3 +125,4 @@ class Food extends React.Component {
 }
 
 export default Food
+

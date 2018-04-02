@@ -13,6 +13,7 @@ class Signup extends React.Component {
             lastName: '',
             username: '',
             password: '',
+            dateOfBirth: '',
             age: ''
 
         }
@@ -32,6 +33,7 @@ class Signup extends React.Component {
           let lastName = this.state.lastName
           let username = this.state.username
           let password = this.state.password
+          let dateOfBirth = this.state.dateOfBirth
           let age = this.state.age
           let was = this
           alert('A user was submitted: ' )
@@ -40,6 +42,7 @@ class Signup extends React.Component {
               lastName: lastName,
               username: username,
               password: password,
+              dateOfBirth: dateOfBirth,
               age: age
             
           } )
@@ -72,6 +75,9 @@ class Signup extends React.Component {
         </div> 
         <div className='six wide field'>
           <input type='password' name='password' placeholder='password' onChange={this.handleChange} />
+        </div>
+        <div className='six wide field'>
+          <input type='date' name='dateOfBirth' placeholder='dateOfBirth' onChange={this.handleChange} />
         </div>
         <div className='six wide field'>
           <input type='number' name='age' placeholder='age' onChange={this.handleChange} />
