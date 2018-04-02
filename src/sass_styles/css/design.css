@@ -1,10 +1,23 @@
 .display-2 {
-  color: #8B008B; }
+  color: #323232; }
+
+.jumbotron {
+  color: #DC143C;
+  margin: auto;
+  text-align: center;
+  border-radius: 30px;
+  padding: 40px;
+  width: 60%;
+  box-shadow: 2px 2px 3px #EEEEEE; }
+
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif; }
+
+h2 {
+  font-size: 40px; }
 
 body {
-  background-color: #5F9EA0; }
-
-#title {
-  color: #808080; }
+  background-color: #000000;
+  font-family: 'Open Sans', sans-serif; }
 
 /*# sourceMappingURL=design.css.map */

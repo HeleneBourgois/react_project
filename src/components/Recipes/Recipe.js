@@ -23,7 +23,13 @@ class Recipe extends React.Component {
         let was = this
         axios.get('http://localhost:3000/recipes', {
             params: {
-                _user: userid
+                filter: {
+
+                    _user: userid
+                },
+                sort: {
+                    name: 'desc'
+                }
             }
         })
         .then(function(response) {
