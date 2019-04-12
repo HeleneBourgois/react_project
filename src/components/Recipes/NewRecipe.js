@@ -83,7 +83,6 @@ class NewRecipe extends React.Component {
           let userid = cookies.get('userid')
           alert('A recipe was submitted: ' )
           axios.post('http://localhost:3000/recipe/' + userid, { 
-            //+ userid car params soit egal a :USERID
               name: name,
               _foods: _foods
             
