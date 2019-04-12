@@ -30,13 +30,9 @@ class NewRecipe extends React.Component {
       }
       
       handleChange(event, data){
-        //data = valeur qui a dedans , we use data because it is not an input
-        //for input data doesnt work
-        // console.log(data)
         this.setState({[event.target.name]: event.target.value})
         if (data && data.name === '_foods') {
           this.setState({_foods: data.value}) 
-          // console.log(data.value)
         }
       }
 
@@ -45,7 +41,6 @@ class NewRecipe extends React.Component {
         let cookies = new Cookies()
         let userid = cookies.get('userid')
         axios.get('http://localhost:3000/food/' , {
-          //quand je mets params dans axios ca correspond a un query
           params: {
             _user: userid
           }
